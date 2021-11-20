@@ -118,5 +118,11 @@ class PlantDoctor():
         self.disease_classifier.eval()
 
 
+'''
+
+USAGE EXAMPLE
+
 Dr = PlantDoctor()
 print(Dr.diagnose('3.jpeg'))
+
+'''
