@@ -16,6 +16,17 @@ class RulerService:
         self.transform = transforms.Compose([
             transforms.ToTensor(),
         ])
+        self.encoder = [
+            'начало роста',
+            'появление первых 2 - 4 листьев',
+            'появление цветоноса',
+            'полный выход цветоносов',
+            'цветение',
+            'опадение лепестков',
+            'формирование ягод',
+            'развитие плода',
+            'дифференциация почек и усов'
+        ]
 
     def prepare_photo(self, photo_path: str) -> np.array:
         image = Image.open(photo_path)
@@ -26,8 +37,8 @@ class RulerService:
         image = self.transform(image)
         return image.unsqueeze(0)
 
-    def predict_level(self, photo_path: str) -> int:
-        return round(self.levelmeasure(self.prepare_photo(photo_path)).item())
+    def predict_level(self, photo_path: str) -> str:
+        return self.encoder[round(self.levelmeasure(self.prepare_photo(photo_path)).item())]
 
     # load levelmeasure model lazily for graphic memory saving
     @property
