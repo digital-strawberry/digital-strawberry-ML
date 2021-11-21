@@ -196,3 +196,6 @@ Dr = PlantDoctor()
 print(Dr.diagnose('3.jpeg'))
 
 '''
+
+Dr = PlantDoctor()
+print(Dr.diagnose('9k.png'))
