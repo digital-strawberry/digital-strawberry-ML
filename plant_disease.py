@@ -110,7 +110,7 @@ class PlantDoctor():
             picture = self.prepare_square(square)
             total_distribution += self.get_health_distribution(picture)
             square_counter += 1
-        total_distribution /= square_counter
+        total_distribution /= square_counter if square_counter else 0.9
 
         health_rate = 1 - max(total_distribution)
         illness_list = []
